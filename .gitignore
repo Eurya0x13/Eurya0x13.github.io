@@ -10,9 +10,6 @@
 /.workbuddy/
 /output/
 
-# 风格预览稿：仅本地回看用，不进仓库、不发布
-/static/previews/
-
 # 系统文件
 .DS_Store
 Thumbs.db
