@@ -23,8 +23,10 @@ a:hover { color: var(--hi); }
 img { max-width: 100%; height: auto; }
 
 .site {
-  max-width: 1240px; min-height: 100vh; margin: 0 auto; padding: 0 48px 64px;
-  display: grid; grid-template-columns: 250px minmax(0, 1fr); column-gap: 64px;
+  width: 100%; max-width: none; min-height: 100vh; margin: 0;
+  padding: 0 clamp(24px, 4vw, 72px) 64px;
+  display: grid; grid-template-columns: clamp(220px, 18vw, 300px) minmax(0, 1fr);
+  column-gap: clamp(32px, 4vw, 72px);
   grid-template-rows: 1fr auto;
 }
 .masthead {
@@ -48,7 +50,7 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 /* 首页 */
 .eyebrow { font-size: 11px; letter-spacing: .16em; color: var(--hi); margin: 0 0 20px; text-transform: uppercase; }
 .intro h1 { font-size: 46px; font-weight: 700; line-height: 1.28; letter-spacing: -.035em; margin: 0 0 18px; }
-.intro .dek { font-size: 15px; color: var(--sub); margin: 0 0 70px; max-width: 560px; }
+.intro .dek { font-size: 15px; color: var(--sub); margin: 0 0 70px; max-width: 700px; }
 .section-label {
   display: flex; justify-content: space-between; border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--line); padding: 12px 0;
@@ -66,7 +68,7 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .post-main { display: contents; }
 .post-title { grid-column: 2; grid-row: 1; font-size: 25px; font-weight: 650; letter-spacing: -.02em; line-height: 1.4; }
 .post-title:hover { color: var(--hi); }
-.post-dek { grid-column: 2; grid-row: 2; color: var(--sub); font-size: 13.5px; margin: 8px 0 0; max-width: 620px; }
+.post-dek { grid-column: 2; grid-row: 2; color: var(--sub); font-size: 13.5px; margin: 8px 0 0; max-width: 760px; }
 .post time { grid-column: 3; grid-row: 1; text-align: right; padding-top: 10px; font-size: 11.5px; letter-spacing: .04em; color: var(--sub); }
 .post-meta { grid-column: 3; grid-row: 2; text-align: right; font-size: 11px; color: var(--sub); }
 
@@ -84,30 +86,30 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 /* 文章页 */
 .post-kicker { font-size: 11px; letter-spacing: .14em; color: var(--hi); margin: 0 0 24px; }
 .post-h1 { font-size: 44px; font-weight: 700; line-height: 1.25; letter-spacing: -.03em; margin: 0 0 20px; }
-.post-lead { font-size: 18px; line-height: 1.8; color: var(--sub); margin: 0 0 34px; max-width: 620px; }
+.post-lead { font-size: 18px; line-height: 1.8; color: var(--sub); margin: 0 0 34px; max-width: 760px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 44px; }
 .tag { font-size: 11.5px; color: var(--sub); border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; }
 .tag:hover { border-color: var(--hi); color: var(--hi); }
 .post-body h2 { font-size: 24px; font-weight: 650; margin: 52px 0 16px; letter-spacing: -.02em; }
 .post-body h3 { font-size: 19px; font-weight: 650; margin: 34px 0 12px; }
-.post-body p { margin: 0 0 20px; max-width: 640px; }
-.post-body ul, .post-body ol { padding-left: 24px; margin: 0 0 22px; max-width: 640px; }
+.post-body p { margin: 0 0 20px; max-width: 780px; }
+.post-body ul, .post-body ol { padding-left: 24px; margin: 0 0 22px; max-width: 780px; }
 .post-body li { margin-bottom: 8px; }
-.post-body blockquote { margin: 32px 0; padding: 0 0 0 24px; border-left: 2px solid var(--hi); color: var(--sub); max-width: 640px; }
+.post-body blockquote { margin: 32px 0; padding: 0 0 0 24px; border-left: 2px solid var(--hi); color: var(--sub); max-width: 780px; }
 .post-body blockquote p:last-child { margin-bottom: 0; }
-.post-body hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; max-width: 640px; }
-.post-body table { width: 100%; max-width: 640px; border-collapse: collapse; margin: 24px 0; font-size: 13.5px; display: block; overflow-x: auto; }
+.post-body hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; max-width: 780px; }
+.post-body table { width: 100%; max-width: 780px; border-collapse: collapse; margin: 24px 0; font-size: 13.5px; display: block; overflow-x: auto; }
 .post-body th, .post-body td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; }
 .post-body th { background: var(--panel); }
 .post-body img { border: 1px solid var(--line); border-radius: 2px; }
 .post-body code:not(.highlight code) { font-family: var(--mono); font-size: .87em; background: var(--panel); padding: 2px 6px; border-radius: 3px; }
 .post-body .highlight {
   margin: 30px 0; padding: 20px; border: 1px solid var(--line); background: var(--panel);
-  overflow: auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; max-width: 640px;
+  overflow: auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; max-width: 780px;
 }
 .post-body .highlight pre { margin: 0; padding: 0; background: none; }
 .post-body .highlight code { background: none; padding: 0; }
-.post-body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 6px 0; max-width: 640px; }
+.post-body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 6px 0; max-width: 780px; }
 .article-footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
 .back-link { font-size: 12.5px; color: var(--sub); }
 .back-link:hover { color: var(--hi); }
