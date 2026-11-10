@@ -168,6 +168,10 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .filter-input { font-size: 14px; }
 .month-heading { font-size: 13px; }
 
+/* 全宽兜底：放在最后，避免被任何后续规则或旧缓存样式重新限制宽度 */
+html, body { width: 100%; max-width: 100%; margin: 0; }
+.site { width: 100% !important; max-width: none !important; margin: 0 !important; }
+
 @media (max-width: 860px) {
   .site { display: block; padding: 0 22px 60px; }
   .masthead { padding: 34px 0 18px; border-right: 0; border-bottom: 1px solid var(--line); }

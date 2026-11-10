@@ -4,8 +4,8 @@
 <meta name="description" content="{{ .Description | default site.Params.description }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-<link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}?v={{ site.Params.cssVersion }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v={{ site.Params.cssVersion }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ "index.xml" | relURL }}">
 {{ partial "seo.html" . }}
 {{ partial "math.html" . }}
