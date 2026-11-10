@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>页面不存在 · {{ site.Title }}</title>
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}?v={{ site.Params.cssVersion }}">
+  {{ partial "theme-init.html" . }}
+  <link rel="stylesheet" id="chroma-light" href="{{ "css/chroma-light.css" | relURL }}?v={{ site.Params.cssVersion }}" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" id="chroma-dark" href="{{ "css/chroma-dark.css" | relURL }}?v={{ site.Params.cssVersion }}" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v={{ site.Params.cssVersion }}">
 </head>
 <body>
@@ -19,5 +21,6 @@
   </main>
   {{ partial "footer.html" . }}
 </div>
+<script src="{{ "js/theme.js" | relURL }}?v={{ site.Params.cssVersion }}" defer></script>
 </body>
 </html>

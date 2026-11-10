@@ -8,8 +8,31 @@
   --line: #dedbd4;
   --hi: #8a4b2a;
   --panel: #f3f1ec;
+  --surface: #ffffff;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141311;
+    --ink: #ece8e1;
+    --sub: #9a938a;
+    --line: #35312c;
+    --hi: #d8a07a;
+    --panel: #1e1b18;
+    --surface: #1a1816;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141311;
+  --ink: #ece8e1;
+  --sub: #9a938a;
+  --line: #35312c;
+  --hi: #d8a07a;
+  --panel: #1e1b18;
+  --surface: #1a1816;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; min-height: 100%; }
@@ -130,7 +153,7 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .filter-input {
   flex: 1; min-width: 0; padding: 9px 16px;
   font: inherit; font-size: 13px; color: var(--ink);
-  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
 }
 .filter-input:focus { outline: none; border-color: var(--hi); }
 .month-group { margin-top: 34px; }
@@ -167,6 +190,15 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .foot { font-size: 12px; }
 .filter-input { font-size: 14px; }
 .month-heading { font-size: 13px; }
+
+/* 主题切换 */
+.theme-toggle {
+  margin-top: 28px; padding: 6px 14px;
+  font: inherit; font-size: 12px; color: var(--sub);
+  background: transparent; border: 1px solid var(--line);
+  border-radius: 999px; cursor: pointer;
+}
+.theme-toggle:hover { color: var(--hi); border-color: var(--hi); }
 
 /* 全宽兜底：放在最后，避免被任何后续规则或旧缓存样式重新限制宽度 */
 html, body { width: 100%; max-width: 100%; margin: 0; }
