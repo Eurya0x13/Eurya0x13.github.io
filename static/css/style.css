@@ -191,14 +191,36 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .filter-input { font-size: 14px; }
 .month-heading { font-size: 13px; }
 
-/* 主题切换 */
-.theme-toggle {
-  margin-top: 28px; padding: 6px 14px;
-  font: inherit; font-size: 12px; color: var(--sub);
-  background: transparent; border: 1px solid var(--line);
-  border-radius: 999px; cursor: pointer;
+/* 顶部工具栏：搜索 + 主题切换 */
+.toolbar {
+  position: fixed; top: 16px; right: clamp(16px, 3vw, 40px); z-index: 50;
+  display: flex; gap: 8px; align-items: flex-start;
 }
-.theme-toggle:hover { color: var(--hi); border-color: var(--hi); }
+.toolbar-search { position: relative; }
+.tool-btn {
+  padding: 6px 14px; font: inherit; font-size: 12px; line-height: 1.6;
+  color: var(--sub); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px;
+  cursor: pointer; white-space: nowrap;
+}
+.tool-btn:hover, .tool-btn[aria-expanded="true"] { color: var(--hi); border-color: var(--hi); }
+.search-panel {
+  position: absolute; top: 40px; right: 0; width: min(340px, 86vw);
+  padding: 12px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.search-input {
+  width: 100%; padding: 8px 12px; box-sizing: border-box;
+  font: inherit; font-size: 13px; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 999px;
+}
+.search-input:focus { outline: none; border-color: var(--hi); }
+.search-results { list-style: none; margin: 8px 0 0; padding: 0; max-height: 320px; overflow: auto; }
+.search-results li + li { border-top: 1px solid var(--line); }
+.search-results a { display: block; padding: 8px 4px; font-size: 13px; color: var(--ink); }
+.search-results a:hover { color: var(--hi); }
+.search-results small { display: block; margin-top: 3px; font-size: 11px; color: var(--sub); font-weight: 400; }
+.search-results .search-empty, .search-hint { padding: 8px 4px; margin: 0; font-size: 11px; color: var(--sub); }
 
 /* 全宽兜底：放在最后，避免被任何后续规则或旧缓存样式重新限制宽度 */
 html, body { width: 100%; max-width: 100%; margin: 0; }
@@ -215,4 +237,6 @@ html, body { width: 100%; max-width: 100%; margin: 0; }
   .post time, .post-meta { grid-column: 2; grid-row: auto; text-align: left; padding-top: 0; }
   .post::before { padding-top: 6px; }
   .foot { margin-top: 48px; }
+  .toolbar { top: 10px; right: 12px; }
+  .tool-btn { padding: 5px 11px; font-size: 11px; }
 }

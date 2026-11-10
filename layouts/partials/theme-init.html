@@ -1,8 +1,16 @@
 <script>
 (function () {
+  var v = null;
   try {
-    var t = localStorage.getItem('blog-theme');
-    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    var m = document.cookie.match(/(?:^|;\s*)blog-theme=([^;]*)/);
+    if (m) v = decodeURIComponent(m[1]);
+    if (v !== 'light' && v !== 'dark') v = localStorage.getItem('blog-theme');
   } catch (e) {}
+  if (v !== 'light' && v !== 'dark') return;
+  document.documentElement.dataset.theme = v;
+  var cl = document.getElementById('chroma-light');
+  var cd = document.getElementById('chroma-dark');
+  if (cl) cl.media = v === 'light' ? 'all' : 'not all';
+  if (cd) cd.media = v === 'dark' ? 'all' : 'not all';
 })();
 </script>

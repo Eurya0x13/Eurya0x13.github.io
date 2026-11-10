@@ -23,7 +23,7 @@ enableRobotsTXT = false           # robots.txt 由 static/robots.txt 手写提�
   since = 2026
   mathEnabled = true              # 文章 front matter 写 math = true 才按需加载 KaTeX
   skin = 'grid'                   # 当前视觉方案：C 网格 Grid（暖米白，固定浅色，不跟随系统暗色）
-  cssVersion = '20261110-5'       # 改 CSS / JS 后递增，强制浏览器拉取新文件，避免缓存
+  cssVersion = '20261110-6'       # 改 CSS / JS 后递增，强制浏览器拉取新文件，避免缓存
   defaultCover = '/images/cover-default.svg'  # 仅用于 og:image 分享卡片，页面内不渲染图片
   repoURL = ''                    # 占位：可选，填代码仓库地址
   icp = ''                        # 大陆托管备案通过后填备案号，页脚会自动展示

@@ -1,0 +1,7 @@
+<script type="application/json" id="search-data">
+{{- $docs := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+{{- $docs = $docs | append (dict "t" .Title "u" .RelPermalink "d" (.Description | default (.Summary | plainify)) "g" .Params.tags "date" (cond .Date.IsZero "" (.Date.Format "2006-01-02"))) -}}
+{{- end -}}
+{{- $docs | jsonify | safeJS -}}
+</script>
