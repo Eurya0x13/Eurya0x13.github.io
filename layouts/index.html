@@ -7,9 +7,16 @@
 
 {{ $posts := where site.RegularPages "Section" "posts" }}
 <div class="section-label"><span>最新文章</span><span>{{ len $posts }} 篇</span></div>
+{{ if $posts }}
 <ol class="posts">
   {{ range first 6 $posts }}
     {{ partial "post-row.html" . }}
   {{ end }}
 </ol>
+{{ else }}
+<div class="empty-state">
+  <p>还没有文章。</p>
+  <p class="dek">把带 front matter 的 <code>.md</code> 文件放进 <code>content/posts/</code> 并推送，就会自动出现在这里，并按月份归档。</p>
+</div>
+{{ end }}
 {{ end }}

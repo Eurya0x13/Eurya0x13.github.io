@@ -121,6 +121,28 @@ main { grid-column: 2; grid-row: 1; padding-top: 64px; min-width: 0; }
 .btn { display: inline-block; padding: 9px 20px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; }
 .btn:hover { border-color: var(--hi); color: var(--hi); }
 
+/* 分月归档与即时筛选 */
+[hidden] { display: none !important; }
+.filter-bar { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+.filter-input {
+  flex: 1; min-width: 0; padding: 9px 16px;
+  font: inherit; font-size: 13px; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+}
+.filter-input:focus { outline: none; border-color: var(--hi); }
+.month-group { margin-top: 34px; }
+.month-heading {
+  font-size: 12px; font-weight: 600; letter-spacing: .14em;
+  color: var(--hi); margin: 0 0 6px; text-transform: uppercase;
+}
+.empty-hint { color: var(--sub); font-size: 13px; margin-top: 24px; }
+.empty-state { padding: 40px 0; border-top: 1px solid var(--line); }
+.empty-state p { margin: 0 0 10px; }
+.empty-state code, .empty-state .dek code {
+  font-family: var(--mono); font-size: .87em;
+  background: var(--panel); padding: 2px 6px; border-radius: 3px;
+}
+
 @media (max-width: 860px) {
   .site { display: block; padding: 0 22px 60px; }
   .masthead { padding: 34px 0 18px; border-right: 0; border-bottom: 1px solid var(--line); }

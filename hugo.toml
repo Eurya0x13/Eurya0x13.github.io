@@ -70,7 +70,3 @@ enableRobotsTXT = false           # robots.txt 由 static/robots.txt 手写提�
     name = '关于'
     url = '/about/'
     weight = 30
-  [[menu.main]]
-    name = '订阅'
-    url = '/index.xml'
-    weight = 40

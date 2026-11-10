@@ -12,19 +12,48 @@
     {{ end }}
   </div>
 {{ else }}
-  <ol class="posts">
-    {{ range .Paginator.Pages }}
-      {{ partial "post-row.html" . }}
-    {{ end }}
-  </ol>
-  {{ with .Paginator }}
-    {{ if gt .TotalPages 1 }}
-    <nav class="pager" aria-label="分页">
-      {{ if .HasPrev }}<a href="{{ .Prev.URL }}">← 上一页</a>{{ end }}
-      <span class="count">第 {{ .PageNumber }} / {{ .TotalPages }} 页</span>
-      {{ if .HasNext }}<a href="{{ .Next.URL }}">下一页 →</a>{{ end }}
-    </nav>
-    {{ end }}
+  {{ $posts := .Pages }}
+  {{ if $posts }}
+  <div class="filter-bar">
+    <input type="search" id="post-filter" class="filter-input" placeholder="按标题或摘要筛选…" aria-label="筛选文章">
+    <span class="count" id="filter-count">共 {{ len $posts }} 篇</span>
+  </div>
+  {{ range $posts.GroupByDate "2006-01" }}
+  <section class="month-group">
+    <h2 class="month-heading">{{ if eq .Key "0001-01" }}未标注日期{{ else }}{{ .Key }}{{ end }}</h2>
+    <ol class="posts">
+      {{ range .Pages }}{{ partial "post-row.html" . }}{{ end }}
+    </ol>
+  </section>
+  {{ end }}
+  <p class="empty-hint" id="filter-empty" hidden>没有匹配的文章，换个关键词试试。</p>
+  <script>
+    (function () {
+      var input = document.getElementById('post-filter');
+      if (!input) return;
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.month-group .post'));
+      var groups = Array.prototype.slice.call(document.querySelectorAll('.month-group'));
+      var count = document.getElementById('filter-count');
+      var empty = document.getElementById('filter-empty');
+      var total = rows.length;
+      input.addEventListener('input', function () {
+        var q = this.value.trim().toLowerCase(), shown = 0;
+        rows.forEach(function (row) {
+          var hit = row.textContent.toLowerCase().indexOf(q) !== -1;
+          row.hidden = !hit;
+          if (hit) shown++;
+        });
+        groups.forEach(function (g) { g.hidden = !g.querySelector('.post:not([hidden])'); });
+        if (count) count.textContent = q ? '匹配 ' + shown + ' / ' + total + ' 篇' : '共 ' + total + ' 篇';
+        if (empty) empty.hidden = shown !== 0;
+      });
+    })();
+  </script>
+  {{ else }}
+  <div class="empty-state">
+    <p>这里还没有文章。</p>
+    <p class="dek">把带 front matter 的 <code>.md</code> 文件放进 <code>content/posts/</code> 并推送，就会自动出现在这里，并按月份归档。</p>
+  </div>
   {{ end }}
 {{ end }}
 {{ end }}
