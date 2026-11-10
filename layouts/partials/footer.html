@@ -1,0 +1,11 @@
+<footer class="foot">
+  <span>
+    © {{ now.Year }}{{ with site.Params.author }} {{ . }}{{ end }} · {{ site.Title }}
+    {{ with site.Params.icp }} · <a href="https://beian.miit.gov.cn/" rel="nofollow noopener" target="_blank">{{ . }}</a>{{ end }}
+  </span>
+  <span>
+    <a href="{{ "index.xml" | relURL }}">RSS</a> ·
+    <a href="{{ "sitemap.xml" | relURL }}">Sitemap</a>
+    {{ with site.Params.repoURL }} · <a href="{{ . }}" rel="noopener">源码</a>{{ end }}
+  </span>
+</footer>

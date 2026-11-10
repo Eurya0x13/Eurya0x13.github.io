@@ -1,0 +1,8 @@
+{{/* 按需加载 KaTeX：只在 front matter 写 math = true 的文章注入。
+       使用 jsDelivr 的 katex 最新版路径；生产环境建议锁定具体版本或改为本地资源。 */}}
+{{ if and site.Params.mathEnabled (.Params.math) }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.querySelector('.post-body') || document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+{{ end }}

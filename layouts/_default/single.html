@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ $isPost := eq .Section "posts" }}
+<article class="post-body">
+  <p class="post-kicker">
+    {{ if $isPost }}
+      {{ with .Params.categories }}{{ delimit . " / " }} / {{ end }}{{ .Date.Format "2006-01-02" }} / 约 {{ .ReadingTime }} 分钟
+    {{ else }}
+      关于本站
+    {{ end }}
+  </p>
+  <h1 class="post-h1">{{ .Title }}</h1>
+  {{ with .Description }}<p class="post-lead">{{ . }}</p>{{ end }}
+
+  {{ with .Params.tags }}
+  <div class="tags">
+    {{ range . }}<a class="tag" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">#{{ . }}</a>{{ end }}
+  </div>
+  {{ end }}
+
+  {{ .Content }}
+
+  <footer class="article-footer">
+    {{ if $isPost }}
+      <a class="back-link" href="{{ "/posts/" | relURL }}">← 返回文章列表</a>
+      <nav class="article-nav">
+        <span>{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}</span>
+        <span>{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}</span>
+      </nav>
+    {{ else }}
+      <a class="back-link" href="{{ "/" | relURL }}">← 返回首页</a>
+    {{ end }}
+  </footer>
+</article>
+{{ end }}

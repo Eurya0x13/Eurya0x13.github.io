@@ -1,0 +1,76 @@
+# ─────────────────────────────────────────────────────────────
+# 站点基础配置
+# baseURL / author / repoURL 为占位值，上线前必须替换成你自己的信息
+# ─────────────────────────────────────────────────────────────
+# 已按 GitHub 账号 Eurya0x13 的用户页仓库 Eurya0x13.github.io 配置（2026-11-10 确认）。
+# 若改用项目页仓库 blog，改成 'https://eurya0x13.github.io/blog/'；
+# 若绑定自有域名，改成 'https://你的域名/'。结尾斜杠不能少。
+# GitHub Actions 部署时用 --baseURL 自动覆盖本值，无需手改。
+baseURL = 'https://eurya0x13.github.io/'
+locale = 'zh-CN'
+defaultContentLanguage = 'zh'
+title = '学习笔记 · 编程与学术心得'
+hasCJKLanguage = true             # 让中文阅读时长与摘要统计更准确
+summaryLength = 90
+paginate = 8
+enableGitInfo = false
+enableRobotsTXT = false           # robots.txt 由 static/robots.txt 手写提供，便于写死 Sitemap 地址
+
+[params]
+  description = '记录编程实践与论文阅读心得的学习笔记，持续更新。'
+  author = ''                     # 占位：上线前填你的名字或笔名
+  tagline = '把学过的东西讲清楚，才算真的学会'
+  since = 2026
+  mathEnabled = true              # 文章 front matter 写 math = true 才按需加载 KaTeX
+  skin = 'grid'                   # 当前视觉方案：C 网格 Grid（暖米白，固定浅色，不跟随系统暗色）
+  defaultCover = '/images/cover-default.svg'  # 仅用于 og:image 分享卡片，页面内不渲染图片
+  repoURL = ''                    # 占位：可选，填代码仓库地址
+  icp = ''                        # 大陆托管备案通过后填备案号，页脚会自动展示
+
+# 固定链接用英文短词或拼音，不用中文长串与默认数字 id
+[permalinks]
+  posts = '/posts/:slug/'
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false             # 配合 static/css/chroma.css（github-dark）
+    lineNos = false
+    codeFences = true
+    guessSyntax = true
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  page = ['HTML']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML']
+  term = ['HTML', 'RSS']
+
+[menu]
+  [[menu.main]]
+    name = '文章'
+    url = '/posts/'
+    weight = 10
+  [[menu.main]]
+    name = '标签'
+    url = '/tags/'
+    weight = 20
+  [[menu.main]]
+    name = '关于'
+    url = '/about/'
+    weight = 30
+  [[menu.main]]
+    name = '订阅'
+    url = '/index.xml'
+    weight = 40

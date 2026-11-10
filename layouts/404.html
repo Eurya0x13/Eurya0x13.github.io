@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>页面不存在 · {{ site.Title }}</title>
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+<div class="site">
+  {{ partial "header.html" . }}
+  <main class="center-page">
+    <div class="code">404</div>
+    <h1>这里还没有内容</h1>
+    <p>链接可能写错了，或者这篇文章已经搬了家。</p>
+    <a class="btn" href="{{ "/" | relURL }}">回到首页</a>
+  </main>
+  {{ partial "footer.html" . }}
+</div>
+</body>
+</html>

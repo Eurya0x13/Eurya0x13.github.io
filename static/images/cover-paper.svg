@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="封面：论文笔记">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d3b3e"/>
+      <stop offset="1" stop-color="#1f7a70"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <g stroke="#ffffff" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 135H1200M0 270H1200M0 405H1200M0 540H1200"/>
+    <path d="M200 0V675M400 0V675M600 0V675M800 0V675M1000 0V675"/>
+  </g>
+  <path d="M700 480 L820 400 L920 430 L1030 280 L1120 310" fill="none" stroke="#ffb703" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#ffb703">
+    <circle cx="700" cy="480" r="10"/><circle cx="820" cy="400" r="10"/>
+    <circle cx="920" cy="430" r="10"/><circle cx="1030" cy="280" r="10"/>
+    <circle cx="1120" cy="310" r="10"/>
+  </g>
+  <rect x="88" y="248" width="120" height="6" rx="3" fill="#ffb703"/>
+  <text x="88" y="360" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="2">READ IT THRICE</text>
+  <text x="92" y="414" fill="#bfe8df" font-family="Arial, Helvetica, sans-serif" font-size="26" letter-spacing="6">03 / PAPER NOTES</text>
+</svg>

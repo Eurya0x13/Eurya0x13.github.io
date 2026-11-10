@@ -1,0 +1,4 @@
+<blockquote class="note">
+  <strong>{{ .Get "title" | default "小记" }}</strong>
+  {{ .Inner | markdownify }}
+</blockquote>

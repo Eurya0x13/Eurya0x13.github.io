@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 当前按 GitHub 账号 Eurya0x13 的用户页仓库配置。
+# 若改用项目页仓库 blog，改成 https://eurya0x13.github.io/blog/sitemap.xml
+# robots.txt 的 Sitemap 必须是绝对 URL。
+Sitemap: https://eurya0x13.github.io/sitemap.xml

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="intro">
+  <p class="eyebrow">Learning in public</p>
+  <h1>{{ site.Params.tagline }}</h1>
+  <p class="dek">{{ site.Params.description }}</p>
+</div>
+
+{{ $posts := where site.RegularPages "Section" "posts" }}
+<div class="section-label"><span>最新文章</span><span>{{ len $posts }} 篇</span></div>
+<ol class="posts">
+  {{ range first 6 $posts }}
+    {{ partial "post-row.html" . }}
+  {{ end }}
+</ol>
+{{ end }}

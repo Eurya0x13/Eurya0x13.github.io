@@ -1,0 +1,30 @@
+{{ define "main" }}
+<header class="page-head">
+  <p class="eyebrow">{{ if eq .Kind "taxonomy" }}Topics{{ else }}Archive{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  <p class="dek">{{ with .Description }}{{ . }}{{ else }}共 {{ len .Pages }} 篇{{ end }}</p>
+</header>
+
+{{ if eq .Kind "taxonomy" }}
+  <div class="cloud">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}">{{ .Title }}<span class="count">{{ len .Pages }}</span></a>
+    {{ end }}
+  </div>
+{{ else }}
+  <ol class="posts">
+    {{ range .Paginator.Pages }}
+      {{ partial "post-row.html" . }}
+    {{ end }}
+  </ol>
+  {{ with .Paginator }}
+    {{ if gt .TotalPages 1 }}
+    <nav class="pager" aria-label="分页">
+      {{ if .HasPrev }}<a href="{{ .Prev.URL }}">← 上一页</a>{{ end }}
+      <span class="count">第 {{ .PageNumber }} / {{ .TotalPages }} 页</span>
+      {{ if .HasNext }}<a href="{{ .Next.URL }}">下一页 →</a>{{ end }}
+    </nav>
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ end }}

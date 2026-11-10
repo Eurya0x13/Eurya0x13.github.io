@@ -1,0 +1,9 @@
+{{ $p := . }}
+<li class="post">
+  <div class="post-main">
+    <time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "2006-01-02" }}</time>
+    <a class="post-title" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+    <p class="post-dek">{{ $p.Description | default ($p.Summary | plainify | truncate 88) }}</p>
+    <span class="post-meta">{{ with $p.Params.categories }}{{ delimit . " · " }}{{ else }}笔记{{ end }} · 约 {{ $p.ReadingTime }} 分钟</span>
+  </div>
+</li>
